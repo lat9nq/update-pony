@@ -1,0 +1,18 @@
+CC=gcc
+CCFLAGS=-Wall -g
+
+%.o:%.c
+	$(CC) $(CCFLAGS) -c $< -o$@
+
+UP_REQ=color.o nbt.o update-pony.o
+update-pony:$(UP_REQ)
+	$(CC) $(CCFLAGS) -o$@ $(UP_REQ) -lm
+
+.PHONY:clean
+clean:
+	-rm -vf *.o update-pony
+
+color.o: color.c color.h
+nbt.o: nbt.c nbt.h color.h
+update-pony.o: update-pony.c nbt.h color.h
+
