@@ -45,6 +45,8 @@ int main(int argc, char * argv[]) {
 	color_int col;
 	uint8_t channels = 0;
 
+	data_len += addGroup("data", data);
+
 	while (read(fd, &c, 1)) {
 		if (c == '{')
 			break;

@@ -139,3 +139,20 @@ int addSeparator(char * key, char * buffer) {
 
 	return i;
 }
+
+int addGroup(char * key, char * buffer) {
+	int i, length;
+	i = 0;
+	length = strlen(key);
+
+	*(buffer) = NBT_GROUP;
+	i++;
+	*(buffer + i) = ((uint8_t *)(&length))[1];
+	i++;
+	*(buffer + i) = ((uint8_t *)(&length))[0];
+	i++;
+	strcpy(buffer + i, key);
+	i += strlen(key);
+
+	return i;
+}

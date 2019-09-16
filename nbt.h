@@ -34,5 +34,6 @@ int addValue(char * key, float data, int t, char * buffer);
 int addColor(char * key, color * data, int t, char * buffer);
 int addBool(char * key, int data, int t, char * buffer);
 int addSeparator(char * key, char * buffer);
+int addGroup(char * key, char * buffer);
 
 #endif
